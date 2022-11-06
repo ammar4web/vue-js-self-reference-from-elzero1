@@ -7,7 +7,15 @@
     <title>vue js: one</title>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">{{ message }}</div>
     <script src="js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js!'
+            }
+            })
+    </script>
 </body>
 </html>
