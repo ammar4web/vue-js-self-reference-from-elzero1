@@ -16,10 +16,16 @@
     <script src="js/vue.js"></script>
     <script>
         new Vue({
+            async mounted() {
+                const res = await fetch('./one.json');
+                const data = await res.json();
+                this.myJson = data;
+            },
             el: '#app',
             data: {
                 message: 'Hello Vue.js!',
                 date: '', 
+                myJson: [],
             },
             methods: {
                 sayHello: function() {
