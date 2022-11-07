@@ -12,6 +12,29 @@
         <p>{{ sayHello() }}</p>
         <button @click="showNewDate()">Show New Date</button>
         <p>{{ date }}</p>
+        <hr>    
+        <!-- v-text -->
+        <p v-text="message"></p>
+        <ul>
+            
+            <!-- v-for -->
+            <li v-for="(item, index) in myJson">
+                {{ index }}: {{ item.firstName }} {{ item.lastName }}
+            </li>
+        </ul>
+        
+        <!-- v-if -->
+        <p v-if="bool">true</p>
+        <p v-else-if="!bool">false</p>
+        
+        <!-- v-html -->
+        <p v-html="'<b>ammar</b>'"></p>
+        
+        <!--v-once: main-> v-DOM won't update the view -->
+        <p v-once>{{ message }}</p>
+
+        <!-- v-show: style{ display: none } -->
+        <p v-show="false">{{ myJson }}</p>
     </div>
     <script src="js/vue.js"></script>
     <script>
@@ -26,6 +49,7 @@
                 message: 'Hello Vue.js!',
                 date: '', 
                 myJson: [],
+                bool: false,
             },
             methods: {
                 sayHello: function() {
