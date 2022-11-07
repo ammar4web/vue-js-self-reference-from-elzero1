@@ -35,6 +35,25 @@
 
         <!-- v-show: style{ display: none } -->
         <p v-show="false">{{ myJson }}</p>
+
+        <!-- v-bind: or : (Shorthand) -->
+        <hr>
+        <a v-bind:href="myURL" target="_blank" rel="noopener noreferrer">My website</a>
+        <br>
+        <a :href="myURL" target="_blank" rel="noopener noreferrer">My website</a>
+        <br><br>
+        
+        <!-- v-on: or @ (Shorthand) -->
+        <button v-on:click="bool = !bool"> click </button>
+        <button @click="bool = !bool"> click </button>
+        <br><br>
+        
+        <!-- v-model -->
+        <input v-model="message" type="text" name="" id=""><br>
+        <select v-model="message" name="" id="">
+            <option value="Ammar">Ammar</option>
+            <option value="MHD">MHD</option>
+        </select><br>
     </div>
     <script src="js/vue.js"></script>
     <script>
@@ -50,6 +69,7 @@
                 date: '', 
                 myJson: [],
                 bool: false,
+                myURL: 'https://ammar4web.github.io/',
             },
             methods: {
                 sayHello: function() {
