@@ -10,9 +10,20 @@
     <div id="app">
         <p>{{ message }}</p>  
         <hr>
+        <first-component></first-component>
+        <first-component></first-component>
     </div>
     <script src="js/vue.js"></script>
     <script>
+        Vue.component('first-component', {
+            data: function() {
+                return {
+                    message: 'Hello component!',
+                    x: 1,
+                }
+            },
+            template: '<p v-on:click="++x">{{ message }} - {{ x }}</p>'
+        })
         new Vue({
             el: '#app',
             data: {
