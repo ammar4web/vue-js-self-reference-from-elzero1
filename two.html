@@ -12,10 +12,12 @@
         <hr>
         <first-component :for-props="forProps"></first-component>
         <first-component :for-props="forProps"></first-component>
+        <second-component-local :for-props="forProps"></second-component-local>
     </div>
     <script src="js/vue.js"></script>
     <script>
-        Vue.component('first-component', {
+        // global component
+        Vue.component('firstComponent', {
             data: function() {
                 return {
                     message: 'Hello component!',
@@ -25,11 +27,27 @@
             props: ['forProps'],
             template: '<div><p v-on:click="++x">{{ message }} - {{ x }}</p><p>{{ forProps }}</p><hr /></div>'
         })
+
+        // local component
+        const secondComponentLocal = {
+            data: function() {
+                return {
+                    message: 'Hello second component!',
+                    x: 1,
+                }
+            },
+            props: ['forProps'],
+            template: '<div><p v-on:click="++x">{{ message }} - {{ x }}</p><p>{{ forProps }}</p><hr /></div>'
+        }
+
         new Vue({
             el: '#app',
             data: {
                 message: 'Hello Vue.js!',
                 forProps: 'test',
+            },
+            components: {
+            'second-component-local': secondComponentLocal,
             },
         })
     </script>
