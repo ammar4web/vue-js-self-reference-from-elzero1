@@ -19,6 +19,14 @@
                 <li v-for="lang in filterLang">{{ lang }}</li>
             </ul>
         </div>
+        <hr>
+        <div>
+            <div>
+                <label for="userName">search for programing language</label>
+                <input type="text" id="userName" v-model="userName">
+            </div>
+            <p>{{ validateUserName }}</p>
+        </div>
     </div>
     <script src="js/vue.js"></script>
     <script>
@@ -27,6 +35,7 @@
             data: {
                 message: 'Hello Vue.js!',
                 findLang: '',
+                userName: '',
                 languages: [
                     'html',
                     'css',
@@ -41,6 +50,15 @@
                 filterLang: function () {
                     filtering = new RegExp(this.findLang, 'i');
                     return this.languages.filter(el => el.match(filtering));
+                },
+
+                validateUserName: function () {
+                    if (!this.userName) {
+                        return "user name shouldn't be empty"
+                    }
+                    else {
+                        return 'good';
+                    }
                 }
             }
         })
