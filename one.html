@@ -54,6 +54,10 @@
             <option value="Ammar">Ammar</option>
             <option value="MHD">MHD</option>
         </select><br>
+
+        <!--  -->
+        <p>{{ calcSquared }}</p>
+        <p>{{ calcSquared }}</p>
     </div>
     <script src="js/vue.js"></script>
     <script>
@@ -70,6 +74,7 @@
                 myJson: [],
                 bool: false,
                 myURL: 'https://ammar4web.github.io/',
+                num: 4,
             },
             methods: {
                 sayHello: function() {
@@ -78,6 +83,12 @@
                 showNewDate: function() {
                     this.date = Date();
                 },
+            },
+            computed: {
+                calcSquared: function () {
+                    console.log("test")
+                    return this.num * this.num;
+                }
             },
             })
     </script>
