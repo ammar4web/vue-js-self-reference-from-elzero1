@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue js: one</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>  
+        <hr>
+        <div>
+            <div>
+                <label for="search">search for programing language</label>
+                <input type="text" id="search" v-model="findLang">
+            </div>
+            <ul>
+                <li v-for="lang in languages">{{ lang }}</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js!',
+                findLang: '',
+                languages: [
+                    'html',
+                    'css',
+                    'js',
+                    'php',
+                    'python',
+                    'java',
+                    'c++'
+                ]
+            },
+        })
+    </script>
+</body>
+</html>
