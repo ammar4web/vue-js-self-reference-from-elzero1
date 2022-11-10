@@ -58,6 +58,15 @@
         <!--  -->
         <p>{{ calcSquared }}</p>
         <p>{{ calcSquared }}</p>
+
+        <hr>
+        <!-- watch -->
+        <div>
+            <label for="syrianPound">Syrian Pound</label>
+            <input type="text" id="syrianPound" v-model="syPound"> - | -
+            <label for="$Pound">$ Pound</label>
+            <input type="text" id="$Pound" v-model="dollarPound">
+        </div>
     </div>
     <script src="js/vue.js"></script>
     <script>
@@ -75,6 +84,8 @@
                 bool: false,
                 myURL: 'https://ammar4web.github.io/',
                 num: 4,
+                syPound: null,
+                dollarPound: null,
             },
             methods: {
                 sayHello: function() {
@@ -89,6 +100,17 @@
                     console.log("test")
                     return this.num * this.num;
                 }
+            },
+            watch: {
+                syPound: function (value) { 
+                    console.log('watch sy'); 
+                    this.dollarPound = this.syPound / 100;
+                },
+                
+                dollarPound: function (value) { 
+                    console.log('watch sy'); 
+                    this.syPound = this.dollarPound * 100;
+                },
             },
             })
     </script>
